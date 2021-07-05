@@ -1,0 +1,61 @@
+{
+  "name": "mota-web-config",
+  "version": "0.1.0",
+  "author": {
+    "name": "wlf"
+  },
+  "scripts": {
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
+    "dev": "vite",
+    "build": "vite build && esno ./build/script/postBuild.ts",
+    "report": "cross-env REPORT=true npm run build ",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.2.0-beta.4",
+    "axios": "^0.21.1",
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.10",
+    "vue-types": "^4.0.0-rc.3",
+    "vuex": "^4.0.2",
+    "vuex-module-decorators": "^1.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.2",
+    "@types/fs-extra": "^9.0.11",
+    "@types/http-proxy": "^1.17.6",
+    "@types/rollup-plugin-visualizer": "^4.2.0",
+    "@types/vfile-message": "^2.0.0",
+    "@types/yargs": "^17.0.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "@vitejs/plugin-legacy": "^1.4.2",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
+    "@vue/compiler-sfc": "^3.1.2",
+    "chalk": "^4.1.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.11.1",
+    "esno": "^0.7.3",
+    "fs-extra": "^10.0.0",
+    "http-proxy": "^1.18.1",
+    "less": "^4.1.1",
+    "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-visualizer": "^5.5.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4",
+    "vite": "^2.3.8",
+    "vite-plugin-compression": "^0.2.5",
+    "vite-plugin-html": "^2.0.7",
+    "vite-plugin-imagemin": "^0.3.2",
+    "vite-plugin-style-import": "^1.0.0",
+    "vue-eslint-parser": "^7.6.0",
+    "vue-tsc": "^0.2.0",
+    "yargs": "^17.0.1"
+  }
+}
