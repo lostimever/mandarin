@@ -1,14 +1,21 @@
 {
   "name": "mandarin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": {
     "name": "wlf"
   },
   "scripts": {
+    "build": "vite build && esno ./build/script/postBuild.ts",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
     "dev": "vite",
-    "build": "vite build && esno ./build/script/postBuild.ts",
+    "prepare": "husky install",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "report": "cross-env REPORT=true npm run build ",
     "serve": "vite preview"
   },
@@ -22,6 +29,8 @@
     "vuex-module-decorators": "^1.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@rollup/plugin-alias": "^3.1.2",
     "@types/fs-extra": "^9.0.11",
     "@types/http-proxy": "^1.17.6",
@@ -34,6 +43,8 @@
     "@vitejs/plugin-vue-jsx": "^1.1.5",
     "@vue/compiler-sfc": "^3.1.2",
     "chalk": "^4.1.1",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.1.1",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "eslint": "^7.29.0",
@@ -43,10 +54,17 @@
     "esno": "^0.7.3",
     "fs-extra": "^10.0.0",
     "http-proxy": "^1.18.1",
+    "husky": "^7.0.0",
     "less": "^4.1.1",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.1",
     "rimraf": "^3.0.2",
     "rollup-plugin-visualizer": "^5.5.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.4",
     "vite": "^2.3.8",
@@ -57,5 +75,8 @@
     "vue-eslint-parser": "^7.6.0",
     "vue-tsc": "^0.2.0",
     "yargs": "^17.0.1"
+  },
+  "engines": {
+    "node": "^12 || >=14"
   }
 }
