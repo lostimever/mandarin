@@ -9,6 +9,10 @@
 3. 尝试将`.vue`转成`tsx`
 4. 通过`import.meta.env`获取`.env`文件配置
 
+# 插件
+
+- `dotenv` 解析 .env 文件
+
 # TODO
 
 - [ ] 国际化
