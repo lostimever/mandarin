@@ -15,10 +15,22 @@ module.exports = {
     'space-before-function-paren': ['error', 'never'],
     quotes: ['error', 'single', { allowTemplateLiterals: true }],
     semi: ['error', 'always'],
-    'no-console': import.meta.env.MODE === 'production' ? 'warn' : 'off',
-    'no-debugger': import.meta.env.MODE === 'production' ? 'error' : 'off',
     'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
-    arrowParens: 'always',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
