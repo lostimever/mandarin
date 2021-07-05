@@ -16,3 +16,7 @@
 - [ ] vue-router-next
 - [ ] vuex-next
 - [ ] git 提交规范
+
+# 参考链接
+
+- [husky 使用总结](https://zhuanlan.zhihu.com/p/366786798)
