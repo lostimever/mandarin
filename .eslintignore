@@ -19,3 +19,4 @@ Dockerfile
 *.local
 .svn
 yarn-error.log
+commitlint.config.js
