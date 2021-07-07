@@ -1,16 +1,13 @@
 import type { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
-import type { RequestOptions, Result, UploadFileParams } from './types';
+import type { RequestOptions, Result, UploadFileParams } from '/#/axios';
 import type { CreateAxiosOptions } from './axiosTransform';
 
 import axios from 'axios';
-import qs from 'qs';
+import qs from 'qs'; //url参数转化（parse和stringify）
 
 import { AxiosCanceler } from './axiosCancel';
-import { isFunction } from '../is';
+import { isFunction } from '/@/utils/is';
 import { cloneDeep } from 'lodash-es';
-
-import { errorResult } from './const';
-
 import { ContentTypeEnum, RequestEnum } from '/@/enums/httpEnum';
 
 export * from './axiosTransform';
@@ -238,10 +235,12 @@ export class VAxios {
         .request<any, AxiosResponse<Result>>(conf)
         .then((res: AxiosResponse<Result>) => {
           if (transformRequestHook && isFunction(transformRequestHook)) {
-            const resTransform = transformRequestHook(res, opt);
-            resTransform !== errorResult
-              ? resolve(resTransform)
-              : reject(new Error('Request Error!'));
+            try {
+              const ret = transformRequestHook(res, opt);
+              resolve(ret);
+            } catch (err) {
+              reject(err || new Error('request error!'));
+            }
             return;
           }
 
