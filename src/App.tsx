@@ -11,12 +11,10 @@ export default defineComponent({
   setup() {
     const state = reactive({
       locale: zhCN,
-      title: '这是个测试',
     });
 
     return () => (
       <ConfigProvider locale={state.locale}>
-        {state.title}
         <RouterView />
       </ConfigProvider>
     );
